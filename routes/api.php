@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Twilio\Rest\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/send-sms', function () {
 $sid = "ACa51b103c323fcf3b43e9e92284240676"; // Your Account SID from www.twilio.com/console
 $token = "59556c24888def28ae68b60231b471cf"; // Your Auth Token from www.twilio.com/console
 
-$client = new Twilio\Rest\Client($sid, $token);
+$client = new Client($sid, $token);
 $message = $client->messages->create(
     '+923239224479', // Add your number to send mesasge
     [
