@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Twilio\Rest\Client;
+use app\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,11 @@ use Twilio\Rest\Client;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/slack-channel-test', 'UserController@index');
+
+
 
 Route::get('/send-sms', function () {
 // Send an SMS using Twilio's REST API and PHP
