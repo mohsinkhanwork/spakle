@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Twilio\Rest\Client;
 
 class UserController extends Controller
 {
@@ -83,5 +84,24 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function twilio()
+    {
+        $message = 'this is from the laravel application';
+        $sid = getenv("TWILIO_SID");
+        $token = getenv("TWILIO_TOKEN");
+        $from = getenv("TWILIO_FROM");
+
+        $client = new Client($sid, $token);
+        $message = $client->messages->create(
+            '+923239224479',
+            [
+                'from' => $from,
+                'body' => $message,
+            ]
+        );
+
+        print $message->sid;
     }
 }
