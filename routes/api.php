@@ -21,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/slack-channel-test', 'UserController@index');
 Route::get('/send-sms', 'UserController@twilio');
+Route::get('/twilio-install-slack', 'TwilioController@index');
+
