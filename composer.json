@@ -8,9 +8,12 @@
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jolicode/slack-php-api": "^4.5",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "nyholm/psr7": "^1.5",
+        "symfony/http-client": "^5.4",
         "twilio/sdk": "^6.41"
     },
     "require-dev": {

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Twilio\Rest\Client;
+use JoliCode\Slack\Api\Client;
+use JoliCode\Slack\ClientFactory;
 
 class UserController extends Controller
 {
@@ -16,6 +17,10 @@ class UserController extends Controller
     public function index(Request $request)
     {
         Log::channel('slack')->info('hello from the laravel app');
+
+        $client = ClientFactory::create('xoxb-3986949221810-4004796731268-FaBiLoRcGBc9nyGEiB6lPn4O');
+        $user = $client->usersInfo(['user' => 'U123AZER'])->getUser();
+        dd($user);
 
         return true;
     }
